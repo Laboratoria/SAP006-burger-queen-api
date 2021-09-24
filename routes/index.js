@@ -1,33 +1,9 @@
-const auth = require('./auth');
-const users = require('./users');
-const products = require('./products');
-const orders = require('./orders');
+const { Router } = require('express')
+const ExampleRouter = require("./ExampleRouter")
 
-const root = (app, next) => {
-  const pkg = app.get('pkg');
-  app.get('/', (req, res) => res.json({ name: pkg.name, version: pkg.version }));
-  app.all('*', (req, resp, nextAll) => nextAll(404));
-  return next();
-};
+const router = Router()
 
-// eslint-disable-next-line consistent-return
-const register = (app, routes, cb) => {
-  if (!routes.length) {
-    return cb();
-  }
+// aqui vai todas as rotas, como um índice
+router.use('/example', ExampleRouter);
 
-  routes[0](app, (err) => {
-    if (err) {
-      return cb(err);
-    }
-    return register(app, routes.slice(1), cb);
-  });
-};
-
-module.exports = (app, next) => register(app, [
-  auth,
-  users,
-  products,
-  orders,
-  root,
-], next);
+module.exports = router

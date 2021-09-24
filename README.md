@@ -298,7 +298,7 @@ sobre os objetivos de aprendizagem do projeto.
 É uma boa prática **NÃO** armazenar a senha do seu usuário no seu banco de dados, pois
 colocaria a segurança de seu usuário em risco. Assim, ao invés de armazená-la como
 um simples string, a ideia é armazenar uma `hash` criptografada. Por exemplo,
-pode-se usar o [bcript](https://www.npmjs.com/package/bcryptjs).
+pode-se usar o [bcryptjs](https://www.npmjs.com/package/bcryptjs).
 
 Assim, na autenticação (`POST /auth`), se a senha do usuário está certa ou não, poderá ser feita
 comparando essa `hash`.
@@ -365,7 +365,10 @@ e por aí vai) e procure aplicar o que aprendeu em seu projeto. Além disso eles
 ter bugs ou desatualizações. Caso aconteça, aproveite para praticar
 suas habilidades de _debug_!
 
-* [Iniciante com Express](https://ezdevs.com.br/comecando-uma-api-rest-com-node-js/)
+* [PT-BR: Express](https://ezdevs.com.br/comecando-uma-api-rest-com-node-js/)
+
+* [Ingles: Express - Part 1](https://medium.com/@haybams/build-a-restful-api-with-node-js-and-express-js-d7e59c7a3dfb)
+* [Ingles: Express com Postgres e Sequelize - Part 2](https://medium.com/@haybams/using-postgresql-and-sequelize-to-persist-our-data-c86854a3c6ac)
 
 // TODO: procurar/reavaliar os tutoriais SAP005
 
