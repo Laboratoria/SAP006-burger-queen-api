@@ -350,12 +350,15 @@ no Heroku, então precisaremos configurar e conectá-lo ao nosso projeto.
 * [Como funciona uma requisição HTTP, header e body](https://medium.com/clebertech/como-funciona-uma-requisi%C3%A7%C3%A3o-http-cf76f66fe36e)
 para relembrarmos, pois vai ser super importante
 * [Outro artigo sobre requisição HTTP, header e body](http://gabsferreira.com/o-que-e-o-http-como-funciona-request-respose/)
-* [Artigo sobre MVC](https://www.profissionaisti.com.br/2014/10/o-conceito-e-as-duvidas-sobre-o-mvc/)
-* [Exemplo](https://github.com/danielbdias/rest-api-with-db-in-nodejs)
+* [Artigo sobre MVC com exemplo](https://medium.com/@ipenywis/what-is-the-mvc-creating-a-node-js-express-mvc-application-da10625a4eda)
+* [O que é CORS](https://www.treinaweb.com.br/blog/o-que-e-cors-e-como-resolver-os-principais-erros)
+* [CORS](https://www.youtube.com/watch?v=GZV-FUdeVwE)
 
 ### Tutoriais
 
-Após se familiarizar, seguem alguns tutoriais que você pode fazer para praticar, se quiser.
+Seguem alguns tutoriais que você pode fazer para praticar, para ganhar uma maior familiaridade
+com algumas das ferramentas utilizadas... mas não se prenda a eles. Existem diversas formas de fazer,
+entenda o uso das ferramentas e os tutoriais podem de dar uma base de prática.
 
 **Muito importante:** Os tutoriais são bons para praticar, mas nenhum deles vai ser
 exatamente igual ao seu projeto, nem na estrutura, nem no código, nem no banco utilizado.
@@ -370,7 +373,7 @@ suas habilidades de _debug_!
 * [Ingles: Express - Part 1](https://medium.com/@haybams/build-a-restful-api-with-node-js-and-express-js-d7e59c7a3dfb)
 * [Ingles: Express com Postgres e Sequelize - Part 2](https://medium.com/@haybams/using-postgresql-and-sequelize-to-persist-our-data-c86854a3c6ac)
 
-// TODO: procurar/reavaliar os tutoriais SAP005
+* [PT-BR: Avançado](https://github.com/andresjesse/api-nodejs-sample)
 
 ### Ferramentas e documentações
 
@@ -393,6 +396,7 @@ suas habilidades de _debug_!
 * [Docker para desenvolvedores](https://github.com/gomex/docker-para-desenvolvedores)
 (livro completo)
 * [Tutorial com Docker](https://github.com/rfukui/do-excel-ao-sistema-complexo)
+* [Exemplo com Docker](https://github.com/danielbdias/rest-api-with-db-in-nodejs)
 
 ***
 
