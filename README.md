@@ -343,8 +343,6 @@ nosso projeto.
 Até o momento, ainda não temos um banco de dados. Nosso banco de dados estará
 no Heroku, então precisaremos configurar e conectá-lo ao nosso projeto.
 
-// TODO: Add video explicando/criando o boilerplate
-
 ### Conteúdos importantes
 
 * [Como funciona uma requisição HTTP, header e body](https://medium.com/clebertech/como-funciona-uma-requisi%C3%A7%C3%A3o-http-cf76f66fe36e)
