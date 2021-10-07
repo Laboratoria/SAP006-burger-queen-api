@@ -1,10 +1,10 @@
-const { Router } = require('express')
-const { getExample, getOtherExample } = require('../controller/ExampleController')
+const { Router } = require('express');
+const { getExample, getOtherExample } = require('../controller/exampleController');
 
-const router = Router()
+const router = Router();
 
 // aqui vai as requisições
-router.get("/", getExample)
-router.get("/other", getOtherExample)
+router.get('/', getExample);
+router.get('/other', getOtherExample);
 
-module.exports = router
+module.exports = router;
