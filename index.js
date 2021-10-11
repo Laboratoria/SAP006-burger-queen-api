@@ -1,12 +1,9 @@
-const express = require('express');
-const app = express();
+const http = require('http');
+const app = require('./app');
+const port = process.env.PORT || 3000;
+const server = http.createServer(app);
+server.listen(port);
 
-// req = requisição, res = resposta, next= chama outro metodo
-app.use('teste', (req, res, next) => {
-    res.status(200).send({
-        mensagem: 'OK, Deu certo!'
-    });
-})
 
 // const express = require('express');
 // const cors = require('cors');
