@@ -1,38 +1,82 @@
+const  {Products } = require('../db/models');
 
-const getAllProducts = (req, res) => {
-  res.status(200).send({ message: 'usando GET na rota products' 
+//ok
+const getAllProducts = (req, res, next) => {
+  Products.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(next);
+};
+
+//ok
+const getProductById = (req, res, next) => {
+  Products.findByPk(req.params.productId)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(next);
+};
+
+//ok
+const postProduct = (req, res, next) => {
+  const { name, flavor, complement, price, image, type, subtype } = req.body;
+  Products.create({
+      name,
+      flavor,
+      complement,
+      price,
+      image,
+      type,
+      subtype
   })
-}
-
-
-const getProductById = (req, res) => {
-  const id = req.params.productid
-  res.status(200).send({ message: 'usando GET na rota products id',
-  id: id
+  .then((result) => {
+    res.status(201).send(result);
   })
-}
+  .catch(next);
+};
 
-
-const postProduct = (req, res) => {
-  res.status(201).send({ message: 'usando POST na rota products' 
+//ok
+const putProduct = (req, res, next) => {
+  const { name, price, flavor, complement, image, type, sub_type } = req.body;
+  Products.update(
+    {
+      name,
+      price,
+      flavor,
+      complement,
+      image,
+      type,
+      sub_type,
+    },
+    {
+      where: {
+        id: req.params.productId,
+      },
+    }
+  )
+  .then(() => {
+    res.status(200).json({
+      message: "Updated successfully!",
+    });
   })
-}
+    .catch(next);
+};
 
-
-const putProduct = (req, res) => {
-  const id = req.params.productid
-  res.status(200).send({ message: 'usando PUT na rota products id',
-  id: id
-  })
-}
-
-
+//ok
 const deleteProduct = (req, res) => {
-  const id = req.params.productid
-  res.status(201).send({ message: 'usando DELETE na rota products id',
-  id: id
+  Products.destroy({
+    where: {
+      id: req.params.productId,
+    },
   })
-}
+    .then(() => {
+      res.status(200).json({
+        message: "Successfully deleted!",
+      });
+    })
+    .catch(next);
+};
 
 module.exports = {
   getAllProducts,
