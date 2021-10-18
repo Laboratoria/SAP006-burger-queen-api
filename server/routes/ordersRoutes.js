@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+// const { getAllOrders } = require("../controller/exampleController")
 
 router.get('/', (req, res, next) => {
+    getAllOrders()
     res.status(200).send({
         mensagem:'Retorna todos os pedidos'
     });
