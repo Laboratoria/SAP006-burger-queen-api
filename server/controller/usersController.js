@@ -1,10 +1,10 @@
-const { User } = require("../db/models");
+// const { User } = require("../db/models");
+const database = require("../db/models");
 
-const getAllUsers = (req, res, next) => {
-  const users = await User.findAll({
-    attributes: {
-      exclude: "password",
-    },
+const getAllUsers = (req, res) => {
+  const users = database.User.findAll({
+    order: [["id", "ASC"]],
+    attributes: { exclude: ["password"] },
   });
   users
     .then((result) => {
@@ -14,24 +14,23 @@ const getAllUsers = (req, res, next) => {
 };
 
 const getUserById = (req, res) => {
-  User.findAll({
-    where: {
-      id: req.params.id,
+  User.findByPk(req.params.uid, {
+    attributes: {
+      exclude: "password",
     },
   })
     .then((result) => {
       res.status(200).json(result);
     })
-    .catch(() =>
-      res.json({
-        message:'ERROR! Try again!',
-      })
-    );
 };
 
-//INSERT USER
-const postUser = (req, res) => {
+const postUser = (req, res, next) => {
   const { name, email, password, role } = req.body;
+  if (!name || !password || !role) {
+    return res.status(400).send({
+      message: "Missing required data",
+    });
+  }
   User.create({
     name,
     email,
@@ -41,17 +40,12 @@ const postUser = (req, res) => {
     .then((result) => {
       res.status(201).json(result);
     })
-    .catch(() =>
-      res.json({
-        message: 'ERROR! Try again!',
-      })
-    );
+    .catch(next);
 };
 
-//CHANGES THE DATA
 const putUser = (req, res) => {
   const { name, email, password, role } = req.body;
-  User.update(
+  const update = User.update(
     {
       name,
       email,
@@ -60,39 +54,25 @@ const putUser = (req, res) => {
     },
     {
       where: {
-        id: req.params.id,
+        id: req.params.uid,
       },
     }
-  )
-    .then(() => {
-      res.status(200).json({
-        message: 'Updated successfully!',
-      });
-    })
-    .catch(() => {
-      res.json({
-        message: 'ERROR! Try again!',
-      });
-    });
+  );
+  return res.status(201).send(update);
 };
 
-//DELETE USER
-const deleteUser = (req, res) => {
+const deleteUser = (req, res, next) => {
   User.destroy({
     where: {
-      id: req.params.id,
+      id: req.params.uid,
     },
   })
     .then(() => {
       res.status(200).json({
-        message: 'User successfully deleted.',
+        message: "User successfully deleted.",
       });
     })
-    .catch(() => {
-      res.json({
-        message: 'ERROR! Try again!',
-      });
-    });
+    .catch(next);
 };
 
 module.exports = {

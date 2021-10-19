@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Order.belongsToMany(models.Product, {
         through: "ProductOrder",
-        as: "Product",
-        foreignKey: "Order_id",
+        as: "product",
+        foreignKey: "order_id",
       });
-      Order.belongsTo(models.User, {
-        foreignKey: 'user_id',
-      });
+      // Order.belongsTo(models.User, {
+      //   foreignKey: 'user_id',
+      // });
     }
   };
   Order.init({
@@ -30,7 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
+    timestamps: false, 
     modelName: 'Order',
+    tableName: 'Order',
   });
   return Order;
 };
