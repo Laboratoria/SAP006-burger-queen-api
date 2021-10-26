@@ -1,4 +1,5 @@
 const { Router } = require('express');
+// const login = require('../controller/authController');
 
 const {
   getAllUsers, getUserById, postUser, putUser, deleteUser,

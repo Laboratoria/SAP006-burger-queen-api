@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       Product.belongsToMany(models.Order, {
         through: 'ProductOrder',
         as: 'Order',
-        foreignKey: 'Product_id',
+        foreignKey: 'product_id',
       });
     }
   };
@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     sub_type: DataTypes.STRING
   }, {
     sequelize,
+    timestamps: false,
     modelName: 'Product',
     tableName: 'Product'
     

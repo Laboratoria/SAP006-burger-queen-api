@@ -5,8 +5,10 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class ProductOrder extends Model {
     static associate(models) {
-      ProductOrder.belongsTo(models.Order)
-      ProductOrder.belongsTo(models.Product)
+      ProductOrder.belongsTo(models.Product);
+      ProductOrder.belongsTo(models.Order);
+      // models.Order.belongsToMany(models.Product, {through: 'ProductOrder'});
+      // models.Product.belongsToMany(models.Order, {through: 'ProductOrder'});
     }
   };
   ProductOrder.init({
