@@ -5,12 +5,10 @@ const getOrderWithProducts = (id) =>
     include: [
       {
         model: Product,
-        as: "Products",
         required: false,
         attributes: ["id", "name", "flavor", "complement"],
         through: {
           model: ProductOrder,
-          as: "ProductOrder",
           attributes: ["qtd"],
         },
       },
@@ -45,7 +43,7 @@ const getAllOrders = (req, res) => {
  .then((result) => {
   res.status(200).send(result);
  });
- 
+
 };
 
 const getOrderById = (req, res) => {
@@ -64,7 +62,6 @@ const getOrderById = (req, res) => {
 // não carrega!
 const postOrders = async (req, res) => {
   const { client_name, user_id, table, products } = req.body;
-console.log(products)
   const order = await Order.create({
     client_name,
     table,
@@ -80,7 +77,7 @@ console.log(products)
     product_id: product.id,
     qtd: product.qtd,
   }));
-  console.log(items)
+
   await ProductOrder.bulkCreate(items);
   const newOrder = await getOrderWithProducts(order.id);
 

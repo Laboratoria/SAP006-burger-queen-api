@@ -9,8 +9,7 @@ module.exports = (sequelize, DataTypes) => {
        foreignKey: 'user_id',
      }),
      Order.belongsToMany(models.Product, {
-       through: 'ProductOrder,',
-       as:'Products',
+       through: models.ProductOrder,
        foreignKey: 'order_id',
      });
     }
@@ -30,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    // timestamps: false, 
+    // timestamps: false,
     modelName: 'Order',
     tableName: 'Order',
   });
