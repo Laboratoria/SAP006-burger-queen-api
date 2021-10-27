@@ -1,13 +1,17 @@
-// aqui vai o código que acessa o banco de dados
+const { Orders } = require("../db/models/orders");
 
-const getExample = (req, res) => {
-  console.log('você também pode utilizar o console para visualizar =)');
-  res.send('Request getExample feita');
-};
+const getAllOrders = (req, res) => {
+    Orders.findAll()
+      .then((result) => {
+        res.status(200).json(result);
+      })
+      .catch(() =>
+        res.json({
+          message: 'ERROR! Try again!',
+        })
+      );
+  };
 
-const getOtherExample = (req, res) => {
-  console.log('outro console =)');
-  res.send('Request getOtherExample feita');
-};
-
-module.exports = { getExample, getOtherExample };
+module.exports = {
+    getAllOrders
+  };

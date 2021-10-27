@@ -8,16 +8,19 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "start:dev": "nodemon --watch",
     "lint": "eslint ."
   },
   "dependencies": {
-    "express": "^4.17.1",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "path": "^0.12.7",
-    "pg": "^8.5.1",
+    "pg": "^8.7.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.7.0"
   },
   "devDependencies": {
     "eslint": "^7.21.0",
@@ -25,5 +28,15 @@
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7",
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "description": "* [1. Prefácio](#1-prefácio)\r * [2. Resumo do projeto](#2-resumo-do-projeto)\r * [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)\r * [4. Considerações gerais](#4-considerações-gerais)\r * [5. Critérios de aceitação mínimos do projeto](#5-critérios-de-aceitação-mínimos-do-projeto)\r * [6. Hacker Edition](#6-hacker-edition)\r * [7. Pistas, tips e leituras complementares](#7-pistas-tips-e-leituras-complementares)\r * [8. HTTP API Checklist](#8-http-api-checklist)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carmemilya/SAP006-burger-queen-api.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/carmemilya/SAP006-burger-queen-api/issues"
+  },
+  "homepage": "https://github.com/carmemilya/SAP006-burger-queen-api#readme"
 }

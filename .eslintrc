@@ -14,5 +14,8 @@
     "no-console": ["error", {
       "allow": ["info", "warn", "error"]
     }]
-  }
+     
+  },
+  "linebreak-style": 
+  ["error", "(process.platform === win32 ? windows : unix)"] 
 }
