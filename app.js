@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-
-const productsRoutes = require('./server/routes/products');
+const productsRoutes = require('./server/routes/productsRoutes');
 const orderRoutes = require('./server/routes/ordersRoutes');
 const usersRoutes = require('./server/routes/usersRoutes');
 
 app.use(morgan('dev'));
+app.use(express.json());
 
 app.use('/products', productsRoutes);
 app.use('/orders', orderRoutes);
