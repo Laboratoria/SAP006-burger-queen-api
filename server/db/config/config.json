@@ -1,17 +1,23 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "root",
-    "database": "bq-api",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "eeevxuqwwgszfj",
+    "password": "174118602d44441d3cff9b787cf0490d1c7e3441bee70adbe77ac5aea2c535a3",
+    "database": "dql7p5v0uaspo",
+    "host": "ec2-3-209-65-193.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
    
   },
   "test": {
-    "username": "postgres",
-    "password": "root",
-    "database": "bq-api",
-    "host": "127.0.0.1",
+    "username": "eeevxuqwwgszfj",
+    "password": "174118602d44441d3cff9b787cf0490d1c7e3441bee70adbe77ac5aea2c535a3",
+    "database": "dql7p5v0uaspo",
+    "host": "ec2-3-209-65-193.compute-1.amazonaws.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
@@ -21,10 +27,10 @@
     }
   },
   "production": {
-    "username": "postgres",
-    "password": "root",
-    "database": "bq-api",
-    "host": "127.0.0.1",
+    "username": "eeevxuqwwgszfj",
+    "password": "174118602d44441d3cff9b787cf0490d1c7e3441bee70adbe77ac5aea2c535a3",
+    "database": "dql7p5v0uaspo",
+    "host": "ec2-3-209-65-193.compute-1.amazonaws.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
