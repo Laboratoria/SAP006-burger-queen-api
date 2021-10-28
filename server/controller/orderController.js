@@ -19,7 +19,7 @@ const { Orders, Products, ProductOrders} = require('../db/models');
             ],
             through: {
               model: ProductOrders,
-              as: 'productOrders',
+              as: 'ProductOrders',
               attributes: ['qtd'],
             },
           },
@@ -94,7 +94,7 @@ const { Orders, Products, ProductOrders} = require('../db/models');
           ],
           through: {
             model: ProductOrders,
-            as: 'productOrders',
+            as: 'ProductOrders',
             attributes: ['qtd'],
           },
         },
