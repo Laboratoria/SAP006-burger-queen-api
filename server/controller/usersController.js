@@ -55,18 +55,7 @@ const postUser = (req, res) => {
     );
 };
     
-  //   .then((result) => {
-  //     res.status(201).json(result);
-  //   })
-  //   .catch((error) =>
-  //       res.status(400).json({
-  //         code: 400,
-  //         error: error.message
-  //       })
-  //     );
-  // };
-
-  const putUser = (req, res) => {
+const putUser = (req, res) => {
     const { name, email, password, role, restaurant } = req.body;
     User.update(
       {

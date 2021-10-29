@@ -1,33 +1,40 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 const { Bearer } = require('permit');
-const User = require('../db/models/user');
 const permit = new Bearer();
+const database = require("../db/models");
+const { User } = database;
 
 module.exports = {
-  login(req, res, next) {
+  login(req, res) {
     const { email, password } = req.body;
 
     User.findOne({
       where: {
         email: email
       },
-    }).then((User) => {
-      if (!User) return res.status(401).json({ error: "email not found" });
+    }).then((user) => {
+      if (!user) return res.status(401).json({ error: "email not found" });
 
-      if (!bcrypt.compareSync(password, User.password)) {
+      if (!bcrypt.compareSync(password, user.password)) {
         return res.status(401).json({ error: "invalid password" });
       }
 
-      // let jwtPayload = { email: user.email };
-      let jwtPayload = { id };
+      let jwtPayload = { email: user.email };
+      // let jwtPayload = { id };
       let token = jwt.sign(jwtPayload, process.env.JWT_SECRET);
 
       return res.status(200).json({ token
         // id, name, email, role, restaurant, token
        });
-    });
-  },
+      })
+      .catch((error) =>
+          res.status(400).json({
+            code: 400,
+            error: error.message
+          })
+        );
+    },
 
   auth(req, res, next) {
      const token = permit.check(req);
